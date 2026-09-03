@@ -26,6 +26,8 @@ Backend/Program.cs -> daar hebben we bij "line 16" de authorization toegevoegd a
 - **Gebruikte Tooling:** (Vue.js DevTools in Chrome, VS Code + Volar, breakpoints)
 - **Oplossing:** Hoe is het hersteld?
 
+Het probleem is dat er geen bestellingen worden laten zien, dat komt omdat er in "line 17" een value wordt toegedragen aan de data, maar omdat het een ref() argument is moet hieraan de value toegewezen worden. 
+
 ## Bug 3: Async/Await & Enum Deserialization
 
 - **Toegewezen aan:** Backend
@@ -34,4 +36,4 @@ Backend/Program.cs -> daar hebben we bij "line 16" de authorization toegevoegd a
 - **Gebruikte Tooling:** (VS Code + C# Dev Kit, breakpoints, Swagger)
 - **Oplossing:** Hoe is de C# code aangepast?
 
-Het probleem is dat er geen bestellingen worden laten zien, dat komt omdat er in "line 17" een value wordt toegedragen aan de data, maar omdat het een ref() argument is moet hieraan de value toegewezen worden. Verder ontdekten we dat de bestellingen niet getoond werden, doordat er iets misging met de filtersysteem in Components/OrderList.vue. In OrderStatus.cs is er in "line 4" [JsonConverter(typeof(JsonStringEnumConverter))] toegevoegd omdat de status van de backend werd in de frontend als een enumerator value gegeven in plaats van een string waardoor er een error kwam. Dit is gevonden door de order.status te loggen en daaruit bleek dat dit een getal was.
+We ontdekten dat de bestellingen niet getoond werden, doordat er iets misging met de filtersysteem in Components/OrderList.vue. In OrderStatus.cs is er in "line 4" [JsonConverter(typeof(JsonStringEnumConverter))] toegevoegd omdat de status van de backend werd in de frontend als een enumerator value gegeven in plaats van een string waardoor er een error kwam. Dit is gevonden door de order.status te loggen en daaruit bleek dat dit een getal was.
