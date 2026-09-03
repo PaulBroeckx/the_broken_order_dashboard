@@ -26,6 +26,8 @@ Backend/Program.cs -> daar hebben we bij "line 16" de authorization toegevoegd a
 - **Gebruikte Tooling:** (Vue.js DevTools in Chrome, VS Code + Volar, breakpoints)
 - **Oplossing:** Hoe is het hersteld?
 
+Het probleem is dat er geen bestellingen worden laten zien, dat komt omdat er in "line 17" een value wordt toegedragen aan de data, maar omdat het een ref() argument is moet hieraan de value toegewezen worden.
+
 ## Bug 3: Async/Await & Enum Deserialization
 
 - **Toegewezen aan:** Backend
