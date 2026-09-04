@@ -22,7 +22,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  delete api.defaults.headers.common.Authorization;
+  //delete api.defaults.headers.common.Authorization;
 
   const token = localStorage.getItem("auth_token");
   if (to.meta.requiresAuth && !token) {

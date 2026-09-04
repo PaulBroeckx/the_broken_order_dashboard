@@ -14,7 +14,7 @@ export const useOrderStore = defineStore("orders", () => {
     error.value = null;
     try {
       const data = await fetchOrdersApi();
-      orders = data;
+      orders.value = data;
     } catch (err) {
       error.value = err instanceof Error ? err.message : "Orders laden mislukt";
       throw err;
