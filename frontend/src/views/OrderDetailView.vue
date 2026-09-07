@@ -14,7 +14,7 @@ onMounted(async () => {
 function onStatusChange(event: Event) {
   const value = (event.target as HTMLSelectElement).value as OrderStatus;
   if (store.currentOrder) {
-    store.currentOrder.status = value;
+    store.updateStatus(store.currentOrder.id, value);
   }
 }
 
