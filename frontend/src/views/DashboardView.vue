@@ -19,7 +19,7 @@ onMounted(async () => {
 async function reload() {
   loadError.value = null;
   try {
-    await store.loadOrders();
+    //await store.loadOrders();
   } catch (err) {
     loadError.value = describeApiError(err);
   }

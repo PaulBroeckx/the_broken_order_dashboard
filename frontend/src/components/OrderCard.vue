@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import type { Order } from "../types";
+import { useOrderStore } from "../stores/useOrderStore";
 import { ORDER_STATUSES, STATUS_LABEL } from "../types";
 import type { OrderStatus } from "../types";
 
 const props = defineProps<{ order: Order }>();
 
+const store = useOrderStore();
+
 function onStatusChange(event: Event) {
   const value = (event.target as HTMLSelectElement).value as OrderStatus;
   props.order.status = value;
+  store.updateStatus(props.order.id, value);
 }
 
 function formatTotal(value: number) {
